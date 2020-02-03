@@ -1,3 +1,5 @@
+// Author: Kevin Hoser
+
 var fs = require('fs');
 
 test('test selectEvent', () => {
