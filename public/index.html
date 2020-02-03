@@ -1,0 +1,112 @@
+<!--
+    Author: Kevin Hoser; 
+    Date:   28 January 2020
+-->
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="stylesheets/hoser21.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="javascripts/cake.js"></script>
+
+        <h1>Cheesecake Order Form</h1>
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg/320px-Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg"
+        width="200" height="200">
+    </head>
+    
+    <body>
+        <!-- 
+            The following form presents the user with:
+                a drop-down menu to select a quantity of cheesecake,
+                ratio buttons to select cheesecake toppings,
+                and a textbox for any special instructions.
+        -->
+        <form id="cake_form">
+            <table>
+                <tr>
+                    <td>Quantity</td>
+                    <td>Topping</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">
+                        <select id="quantity" name="quantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
+                    <td>
+                        <!-- 
+                            There is a forced space here in the original (&nbsp;,
+                            but I excluded it in my version for looks.
+                        -->
+                        <input type="radio" name="topping" id="plain" value="plain" checked>
+                        <label for="plain">Plain</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="topping" id="cherry" value="cherry">
+                        <label for="cherry">Cherry</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="topping" id="chocolate" value="chocolate">
+                        <label for="chocolate">Chocolate</label>
+                    </td>
+                </tr>
+            </table>
+
+            <br>
+
+            Notes:<br>
+
+            <textarea id="notes" name="message" placeholder="Enter any special instructions here."
+            rows="5" cols="50"></textarea><br>
+
+            <br>
+
+            <input type="submit" value="Order">
+        </form>
+
+        <!-- Show a list to contain all orders in previous month -->
+        <h3>Total Orders For
+
+            <!-- 
+                External Reference:
+                    Modified example hover menu from w3schools.
+                    Date: 27 January 2020
+                    URL: https://www.w3schools.com/howto/howto_css_dropdown.asp
+            -->
+            <div class="dropdown">
+                <button id=order_month class="dropbtn">Jan</button>
+                <div class="dropdown-content">
+                    <p id="jan">Jan</p>
+                    <p id="feb">Feb</p>
+                    <p id="mar">Mar</p>
+                    <p id="apr">Apr</p>
+                    <p id="may">May</p>
+                    <p id="jun">Jun</p>
+                    <p id="jul">Jul</p>
+                    <p id="aug">Aug</p>
+                    <p id="sep">Sep</p>
+                    <p id="oct">Oct</p>
+                    <p id="nov">Nov</p>
+                    <p id="dec">Dec</p>
+                </div>
+            </div>
+        </h3>
+
+        <ul>
+            <li>11 cherry</li>
+            <li>17 chocolate</li>
+            <li>31 plain</li>
+        </ul> 
+    </body>
+</html>
