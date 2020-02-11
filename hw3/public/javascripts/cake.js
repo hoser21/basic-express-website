@@ -39,16 +39,20 @@ $(document).ready(function() {
 
     $("#cake_form").submit(eventValidateForm);
 
-    // update the hover menu title to be the month the user clicked on
-    $(".dropdown-click").click(function(){
+    // 1. update the hover menu title to be the month the user clicked on
+    // 2. update the total order list by using a GET request
+    $(".dropdown-click").click(function() {
+
         $("#order_month").text($(this).text());
+
         $.post("/orders", $(this).text(), function(orders) {
             $("#order_history").empty();
+
+            // parse JSON data and put every entry onto the list
             $.each(orders["data"], function(i, item) {
                 var toAdd = $("<li></li>").text(item["quantity"] + " " + item["topping"]);
                 $("#order_history").append(toAdd);
             });
         });
     });
-    
 });
