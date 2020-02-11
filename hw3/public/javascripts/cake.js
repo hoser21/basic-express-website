@@ -40,41 +40,15 @@ $(document).ready(function() {
     $("#cake_form").submit(eventValidateForm);
 
     // update the hover menu title to be the month the user clicked on
-    $("#jan").click(function(){
+    $(".dropdown-click").click(function(){
         $("#order_month").text($(this).text());
+        $.post("/orders", $(this).text(), function(orders) {
+            $("#order_history").empty();
+            $.each(orders["data"], function(i, item) {
+                var toAdd = $("<li></li>").text(item["quantity"] + " " + item["topping"]);
+                $("#order_history").append(toAdd);
+            });
+        });
     });
-    $("#feb").click(function(){
-        $("#order_month").text($(this).text());
-    });
-    $("#mar").click(function(){
-        $("#order_month").text($(this).text());
-    });
-    $("#apr").click(function(){
-        $("#order_month").text($(this).text());
-    });
-    $("#may").click(function(){
-        $("#order_month").text($(this).text());
-    });
-    $("#jun").click(function(){
-        $("#order_month").text($(this).text());
-    });
-    $("#jul").click(function(){
-        $("#order_month").text($(this).text());
-    });
-    $("#aug").click(function(){
-        $("#order_month").text($(this).text());
-    });
-    $("#sep").click(function(){
-        $("#order_month").text($(this).text());
-    });
-    $("#oct").click(function(){
-        $("#order_month").text($(this).text());
-    });
-    $("#nov").click(function(){
-        $("#order_month").text($(this).text());
-    });
-    $("#dec").click(function(){
-        $("#order_month").text($(this).text());
-    });
-
+    
 });
